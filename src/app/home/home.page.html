@@ -1,14 +1,36 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">
+      <span class="ion-text-wrap">Rezi's 30B. Geburtstag</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="secondary">
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-text class="counter ion-text-center" >
+            <app-ng-countdowner [countDownTimerVisible]="true" [end]="'12/9/2019 00:00:00'"
+              (timerExpired)="countdownFinished()"></app-ng-countdowner>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!countdownFinishedFirstTime">
+        <ion-col size="12" size-lg="3" *ngFor="let gif of publicGifs">
+            <ion-img [src]="gif"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="countdownFinishedFirstTime">
+          <ion-col size="12"><h1 class="counter ion-text-center">Sushiiiiiiii Power im Myly!</h1></ion-col>
+          <ion-col size="12" size-lg="3" *ngFor="let gif of privateGifs">
+              <ion-img [src]="gif"></ion-img>
+          </ion-col>
+        <!-- <app-secret-component></app-secret-component> -->
+      </ion-row>
+    </ion-grid>
+
   </div>
 </ion-content>

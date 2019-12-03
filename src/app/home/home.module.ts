@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CountdownerModule } from 'ng-countdowner';
+
 
 import { HomePage } from './home.page';
+import { SecretComponentComponent } from './secret-component/secret-component.component';
 
 @NgModule({
   imports: [
@@ -16,8 +19,9 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    CountdownerModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, SecretComponentComponent]
 })
 export class HomePageModule {}
